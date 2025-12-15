@@ -5,14 +5,14 @@ import { RouterOutlet } from '@angular/router';
   selector: 'app-root',
   imports: [RouterOutlet],
   templateUrl: './app.html',
+  // template:`<h1>inline Template {{name}}<h1>`,
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('Hello Angular');
-  name="Anil sidhu"
-  age=20
-
-  updateName(){
-    this.name="Sidhu"
-  }
+ name="Anil sidhu"
+ email="anil@test.com"
+ getName(a:number,b:number){
+  return a+b;
+ }
 }
+ 
