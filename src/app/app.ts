@@ -8,10 +8,26 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.css'
 })
 export class App {
+  data:any = 20
 
-handleEvent(eventName:string){
-console.log(eventName);
+  updateData(val:number,user:string){
+    
+    this.data=val
+    console.log(user);
 
-}
+    console.log(this.sum(10,20));
+    
+    
+  }
 
+  sum(a:number,b:number):number{
+    return a+b
+  }
+
+  handleEvent(event:PointerEvent | Event | MouseEvent){
+    console.log(event);
+    
+  }
+ 
+  
 }
