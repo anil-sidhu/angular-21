@@ -9,17 +9,9 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
 
-  count = 0;
-  counter(action: string) {
-    if (action == 'minus') {
-      this.count>0 && this.count--
-    } else {
-      this.count++
-    }
-// this.showUserName();
-  }
+handleEvent(eventName:string){
+console.log(eventName);
 
-  showUserName(){
-    alert("Hello")
-  }
+}
+
 }

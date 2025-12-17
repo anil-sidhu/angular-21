@@ -1,6 +1,22 @@
-<h1>Event Binding</h1>
-<button (click)="counter('minus')" >-</button>
-<span> {{count}} </span>
-<button (click)="counter('plus')" >+</button>
-<!-- <button (click)="showUserName" >Show</button> -->
+<h1>Events</h1>
+<input type="text" (input)="handleEvent($event.type)">
+<input type="text" (change)="handleEvent($event.type)">
+<button (click)="handleEvent($event.type)">Click</button>
+<select name="" (change)="handleEvent($event.type)" id="">
+    <option value="">car</option>
+    <option value="">bike</option>
+    <option value="">mobile</option>
+</select>
+
+<input type="text" (blur)="handleEvent($event.type)">
+<input type="text" (focus)="handleEvent($event.type)">
+<div (mouseleave)="handleEvent($event.type)" class="div1">
+
+</div>
+
+<div (mouseenter)="handleEvent($event.type)"  class="div2">
+
+</div>
+
+
 
