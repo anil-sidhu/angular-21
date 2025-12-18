@@ -1,8 +1,10 @@
-<h1>Data Type</h1>
-<h2>{{data}}</h2>
-<button (click)="updateData(60,'anil sidhu')" >Update Data</button>
-<button (click)="handleEvent($event)" >Click</button>
-<input type="text" (change)="handleEvent($event)" >
-<div (mouseenter)="handleEvent($event)">
-    <h1>Test event</h1>
-</div>
+<h1>Property Binding</h1>
+<!-- <button disabled="{{btnDisable}}" >Click Me</button>
+<button [disabled]="btnDisable" >Click Me</button> -->
+<!-- <input type="text" readonly="{{inputReadonly}}">
+<input type="text" [readonly]="inputReadonly"> -->
+<!-- <img src="{{url}}" alt=""> -->
+<img [src]="url" alt="">
+
+
+<!-- <button (click)="toggle()">Toggle</button> -->

@@ -8,26 +8,11 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.css'
 })
 export class App {
-  data:any = 20
+  btnDisable=true;
+  inputReadonly=false;
+  url="https://angular.io/assets/images/logos/angular/angular.png"
 
-  updateData(val:number,user:string){
-    
-    this.data=val
-    console.log(user);
-
-    console.log(this.sum(10,20));
-    
-    
+  toggle(){
+    this.btnDisable=!this.btnDisable;
   }
-
-  sum(a:number,b:number):number{
-    return a+b
-  }
-
-  handleEvent(event:PointerEvent | Event | MouseEvent){
-    console.log(event);
-    
-  }
- 
-  
 }
