@@ -1,4 +1,4 @@
-import { Component, effect, signal } from '@angular/core';
+import { Component, computed, effect, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -8,25 +8,20 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.css'
 })
 export class App {
-  data =10;
-  count= signal(0)
+height= signal(100);
+width=signal(20);
+area= computed(()=> this.height()*this.width())
+constructor(){
+  effect(()=>{
+    // console.log("area is :", this.area());
+    console.log("is updating?");
+  
+  })
+}
 
-  constructor(){
-    effect(()=>{
-      // console.log("this is data",this.data);
-      console.log("this is count",this.count())
-      if(this.count()==10){
-        this.count.set(0)
-      }
-      
-    })
-  }
+handleHeight(){
+  this.height.set(this.height()+10)
+  // this.area= this.height*this.width;
+}
 
-  updateData(){
-    this.data++
-  }
-
-  updateCount(){
-    this.count.set(this.count()+1)
-  }
 }
