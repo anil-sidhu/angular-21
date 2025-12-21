@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, effect, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -8,11 +8,25 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.css'
 })
 export class App {
-  btnDisable=true;
-  inputReadonly=false;
-  url="https://angular.io/assets/images/logos/angular/angular.png"
+  data =10;
+  count= signal(0)
 
-  toggle(){
-    this.btnDisable=!this.btnDisable;
+  constructor(){
+    effect(()=>{
+      // console.log("this is data",this.data);
+      console.log("this is count",this.count())
+      if(this.count()==10){
+        this.count.set(0)
+      }
+      
+    })
+  }
+
+  updateData(){
+    this.data++
+  }
+
+  updateCount(){
+    this.count.set(this.count()+1)
   }
 }
