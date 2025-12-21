@@ -1,4 +1,4 @@
-import { Component, computed, effect, signal } from '@angular/core';
+import { Component, effect, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -8,20 +8,37 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.css'
 })
 export class App {
-height= signal(100);
-width=signal(20);
-area= computed(()=> this.height()*this.width())
-constructor(){
-  effect(()=>{
-    // console.log("area is :", this.area());
-    console.log("is updating?");
-  
-  })
-}
+  speed=signal(0);
+  fruit=signal('apple')
+  color="black"
 
-handleHeight(){
-  this.height.set(this.height()+10)
-  // this.area= this.height*this.width;
-}
+  constructor(){
+    effect(()=>{
+      if(this.speed()>0 && this.speed()<80){
+        this.color='green'
+      }
+      if(this.speed()>=80 && this.speed()<120){
+        this.color='orange'
+      }
+      if(this.speed()>=120 ){
+        this.color='red'
+        
+      }
+    console.log("speed :",this.speed());
+   
+      
+    })
+    effect(()=>{
+      console.log(this.fruit());
+      
+    })
+  }
 
+  increaseSpeed(){
+    this.speed.set(this.speed()+10)
+  }
+
+  changeFruit(){
+    this.fruit.set('banana')
+  }
 }

@@ -1,5 +1,6 @@
-<h1>Computed Signals</h1>
-<h1>Area :{{area()}}</h1>
-<!-- <h2>Height : {{height()}}</h2> -->
-
-<button (click)="handleHeight()" >Update Height</button>
+<h1>Effects</h1>
+<h2 [style.color]="color" >{{speed()}}</h2>
+<button (click)="increaseSpeed()" >Increase Speed</button>
+<hr />
+<h2>{{fruit()}}</h2>
+<button (click)="changeFruit()" >Change fruit</button>
