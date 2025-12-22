@@ -1,4 +1,4 @@
-import { Component, effect, signal } from '@angular/core';
+import { Component, computed, effect, Signal, signal, WritableSignal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -8,37 +8,15 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.css'
 })
 export class App {
-  speed=signal(0);
-  fruit=signal('apple')
-  color="black"
+  data:WritableSignal<string > = signal<string>("anil");
+  users:WritableSignal<string[]>= signal(['anil','sidhu','peter'])
+  speed:Signal<number> = computed<number>(()=>90)
 
-  constructor(){
-    effect(()=>{
-      if(this.speed()>0 && this.speed()<80){
-        this.color='green'
-      }
-      if(this.speed()>=80 && this.speed()<120){
-        this.color='orange'
-      }
-      if(this.speed()>=120 ){
-        this.color='red'
-        
-      }
-    console.log("speed :",this.speed());
-   
-      
-    })
-    effect(()=>{
-      console.log(this.fruit());
-      
-    })
-  }
-
-  increaseSpeed(){
-    this.speed.set(this.speed()+10)
-  }
-
-  changeFruit(){
-    this.fruit.set('banana')
+  handleData(){
+    this.data.set("Sidhu")
+    this.users.update((item)=>[...item,'bruce'])
+    console.log(this.users());
+    
+  
   }
 }
