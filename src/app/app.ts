@@ -8,15 +8,20 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.css'
 })
 export class App {
-  data:WritableSignal<string > = signal<string>("anil");
-  users:WritableSignal<string[]>= signal(['anil','sidhu','peter'])
-  speed:Signal<number> = computed<number>(()=>90)
+ 
+  counter:WritableSignal<number>=signal<number>(0)
 
-  handleData(){
-    this.data.set("Sidhu")
-    this.users.update((item)=>[...item,'bruce'])
-    console.log(this.users());
-    
-  
+  increment(){
+    this.counter.update((val)=>val+1)
   }
+  decrement(){
+    if(this.counter()>0){
+    this.counter.update((val)=>val-1)
+    }
+  }
+   reset(){
+    this.counter.set(0)
+  }
+
+  
 }

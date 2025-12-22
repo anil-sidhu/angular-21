@@ -1,2 +1,11 @@
-<h1>Signals Data Type</h1>
-<button (click)="handleData()" >Show Updated Users</button>
+<div class="counter-card">
+  <h2>Counter App</h2>
+  <div class="count">
+    {{counter()}}
+  </div>
+  <div class="buttons">
+    <button (click)="decrement()">-</button>
+    <button (click)="reset()" >reset</button>
+    <button (click)="increment()">+</button>
+  </div>
+</div>
