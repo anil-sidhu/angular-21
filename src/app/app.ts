@@ -8,13 +8,12 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.css'
 })
 export class App {
- name:WritableSignal<string> = signal('')
+ user = signal("anil")
+ users= signal(['anil','sam','peter'])
 
- resetValue(){
-  this.name.set("Anil Sidhu")
- }
- setValue(val:string){
-  this.name.set(val)
- }
 
+ updateSignal(){
+  this.user.set("peter")
+  this.users.update((preVal)=>[...preVal,'bruce'])
+ }
 }
