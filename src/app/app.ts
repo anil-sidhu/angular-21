@@ -1,15 +1,28 @@
-import { Component, signal, WritableSignal } from '@angular/core';
+
+import { CommonModule } from '@angular/common';
+import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { UserData } from './user-data/user-data';
-import { AdminData } from './admin-data/admin-data';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,UserData,AdminData],
+  imports: [RouterOutlet, CommonModule],
   templateUrl: './app.html',
-  // styleUrl: './app.css'
-  styleUrls:["./app.css","./common.css"]
+  styleUrl: './app.css'
 })
 export class App {
+headingColor= signal("green");
+headingSize=signal(40);
+homeActive=false;
+contactActive=false;
+aboutActive=true;
+bigText=signal(false)
+error =true
 
+updateColor(){
+  this.headingColor.set("orange")
+  this.headingSize.set(20);
+  this.error=!this.error
+  
+
+}
 }
