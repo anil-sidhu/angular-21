@@ -1,28 +1,23 @@
 
-import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CommonModule],
+  imports: [RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-headingColor= signal("green");
-headingSize=signal(40);
-homeActive=false;
-contactActive=false;
-aboutActive=true;
-bigText=signal(false)
-error =true
+  isLogin= signal(false)
+  show=signal(true)
+  status=signal('error')
 
-updateColor(){
-  this.headingColor.set("orange")
-  this.headingSize.set(20);
-  this.error=!this.error
-  
-
-}
+  handleLogin(status:boolean){
+    this.isLogin.set(status)
+  }
+  handleStatus(event:Event){
+    let target = event.target as HTMLSelectElement;
+    this.status.set(target.value)
+  }
 }
