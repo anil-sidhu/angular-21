@@ -1,40 +1,25 @@
-<h1>Control Flow Statement</h1>
+<h1>for | Control Flow Statement</h1>
+
 <div>
-    @if (isLogin()){
-        <span> Welcome, User</span>
-        <button (click)="handleLogin(false)" >Logout</button>
-    } @else{
-        <span>Please Login</span>
-        <button (click)="handleLogin(true)">Login</button>
+    <ul>
+    @for(user of users(); track user){
+    <li>{{user}}</li>
+    }      
+    </ul>
 
-    }
-</div>
-<hr />
-<h1>Toggle</h1>
-@if (show()){
-<button (click)="show.set(false)" >Hide</button>
-} @else{
-<button (click)="show.set(true)">Show</button>
+    <hr />
 
-}
+    <ul  >
+        @for(user of usersDetail();track user.id){
+            <li [style.backgroundColor]="$even?'#ccc':'#fff'" > 
+                <span>{{$index+1}} {{user.name + " "+ user.surname}}
+                     @if($first){<span style="color: red;">Admin</span>}
+                     @if($last){<span style="color: orange;">Guest</span>}
 
-<hr />
-<h1>Check Status</h1>
-<select (change)="handleStatus($event)" name="" id="">
-    <option value="notStarted">Not Started</option>
-    <option value="progress">In Progress</option>
-    <option value="success">Success</option>
-    <option value="error">Error</option>
-
-</select>
-<br>
-@if (status()=="notStarted"){
-    <span>No status</span>
-} @else if (status()=="progress"){
-    <span style="color: orange;">In Progress</span>
-}@else if (status()=="success"){
-    <span style="color: green;">Success</span>
-}@else if (status()=="error"){
-    <span style="color: red;">Error</span>
-}
-
+            </span>
+            
+            <span>@if($count==$index+1){ <span><b>Total Users</b> {{$count}}</span> }</span>
+        </li>
+        }
+    </ul>
+</div> 
