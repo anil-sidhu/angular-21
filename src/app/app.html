@@ -1,25 +1,25 @@
-<h1>for | Control Flow Statement</h1>
+<h1>Switch | Control Flow Statement</h1>
+<select (change)="handleSwitch($event)" name="" id="">
+    <option value="notStarted">Not Started</option>
+    <option value="loading">loading in progress</option>
+    <option value="success">success</option>
+    <option value="error">Error Or Other</option>
 
-<div>
-    <ul>
-    @for(user of users(); track user){
-    <li>{{user}}</li>
-    }      
-    </ul>
+</select>
+<br>
+<br>
 
-    <hr />
-
-    <ul  >
-        @for(user of usersDetail();track user.id){
-            <li [style.backgroundColor]="$even?'#ccc':'#fff'" > 
-                <span>{{$index+1}} {{user.name + " "+ user.surname}}
-                     @if($first){<span style="color: red;">Admin</span>}
-                     @if($last){<span style="color: orange;">Guest</span>}
-
-            </span>
-            
-            <span>@if($count==$index+1){ <span><b>Total Users</b> {{$count}}</span> }</span>
-        </li>
-        }
-    </ul>
-</div> 
+@switch(status()){
+    @case('notStarted'){
+        <span>No update Yet</span>
+    }
+    @case('loading'){
+        <span style="color: orange;">loading in progress</span>
+    }
+    @case('success'){
+        <span style="color: green;">Success</span>
+    }
+    @default{
+        <span style="color: red;">Error</span>
+    }
+}
