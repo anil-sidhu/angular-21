@@ -9,26 +9,22 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './app.css'
 })
 export class App {
+  tasks = signal([
+    { id: 0, title: "Team lunch", completed: false }
+  ])
+  title = signal('')
 
-  userName=signal("Anil sidhu")
-  userData=signal({
-    college:'iet alwar',
-    email:"anil@test.com"
-  })
+  addTask() {
+    if (this.title()) {
+      this.tasks.update((item) => (
+        [...item, { id: this.tasks().length, title: this.title(), completed: false }]
+      ))
+      this.title.set('');
+    }
 
-  get uName(){
-    return this.userName();
   }
-  set uName(val:string){
-    this.userName.set(val)
-  }
-
-  get userCollege(){
-    return this.userData().college
-  }
-
-   set userCollege(val){
-     this.userData.update((item)=>({...item,college:val}))
+  deleteTask(id: number) {
+    this.tasks.update((tasks) => tasks.filter((task) => task.id != id))
   }
 
 }

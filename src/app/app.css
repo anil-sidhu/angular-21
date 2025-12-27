@@ -1,0 +1,11 @@
+.task-list {
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+}
+ul{
+    margin: 0;
+    padding: 0;
+}
