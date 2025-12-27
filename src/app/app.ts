@@ -9,18 +9,26 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './app.css'
 })
 export class App {
-//  name=signal('anil')
-//  age=20
-userData=signal({
-  name:"anil sidhu",
-  age:25,
-  email:"anil@test.com"
-})
 
-updateUserData(key:string,val:string){
-this.userData.update((item)=>({...item,[key]:val}))
+  userName=signal("Anil sidhu")
+  userData=signal({
+    college:'iet alwar',
+    email:"anil@test.com"
+  })
+
+  get uName(){
+    return this.userName();
+  }
+  set uName(val:string){
+    this.userName.set(val)
+  }
+
+  get userCollege(){
+    return this.userData().college
+  }
+
+   set userCollege(val){
+     this.userData.update((item)=>({...item,college:val}))
+  }
+
 }
-
-}
-
-
