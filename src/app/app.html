@@ -1,25 +1,24 @@
-<h1>Switch | Control Flow Statement</h1>
-<select (change)="handleSwitch($event)" name="" id="">
-    <option value="notStarted">Not Started</option>
-    <option value="loading">loading in progress</option>
-    <option value="success">success</option>
-    <option value="error">Error Or Other</option>
+<!-- <h1>{{name()}}</h1>
+<input type="text" [value]="name()" (input)="name.set($event.target.value)">
+<hr> -->
 
-</select>
-<br>
-<br>
+<!-- <h1>{{age}}</h1> -->
+<!-- <input type="text"  [(ngModel)]="age" > -->
+<!-- <input type="text" [ngModel]="age" (ngModelChange)="age = $event" > -->
 
-@switch(status()){
-    @case('notStarted'){
-        <span>No update Yet</span>
-    }
-    @case('loading'){
-        <span style="color: orange;">loading in progress</span>
-    }
-    @case('success'){
-        <span style="color: green;">Success</span>
-    }
-    @default{
-        <span style="color: red;">Error</span>
-    }
-}
+<h1>{{userData().name}}</h1>
+<input type="text" [value]="userData().name" 
+(input)="updateUserData('name',$event.target.value)" 
+ >
+
+ <hr>
+ <h1>{{userData().age}}</h1>
+<input type="text" [value]="userData().age" 
+(input)="updateUserData('age',$event.target.value)" 
+ >
+
+ <hr>
+ <h1>{{userData().email}}</h1>
+<input type="text" [value]="userData().email" 
+(input)="updateUserData('email',$event.target.value)" 
+ >

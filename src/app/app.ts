@@ -1,17 +1,26 @@
 
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [FormsModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
- status=signal("notStarted")
- handleSwitch(event:Event){
-  const target = event.target as HTMLSelectElement
-  this.status.set(target.value)
- }
+//  name=signal('anil')
+//  age=20
+userData=signal({
+  name:"anil sidhu",
+  age:25,
+  email:"anil@test.com"
+})
+
+updateUserData(key:string,val:string){
+this.userData.update((item)=>({...item,[key]:val}))
 }
+
+}
+
+
