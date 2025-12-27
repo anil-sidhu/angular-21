@@ -1,13 +1,9 @@
-<h1>To-Do List</h1>
-<input type="text" [value]="title()" (input)="title.set($event.target.value)" placeholder="enter task">
-<button (click)="addTask()" >Add Task</button>
-<ul>
-@for(task of tasks(); track task.id){
-    <li class="task-list "> <span>{{$index+1}}</span>
-        <span>{{task.title}}</span>
-        <span><button (click)="deleteTask(task.id)" >delete</button></span></li>
-}
-@empty{
-    <span>No Task found</span>
-}
-</ul>
+<h1 *ngIf="isLogin()">Welcome User</h1>
+
+<div>
+    <ul *ngFor="let user of users()">
+        <li>{{user}}</li>
+    </ul>
+</div>
+
+<p [ngStyle]="{color:pColor}" >Hello visitors </p>
