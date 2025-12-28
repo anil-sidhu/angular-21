@@ -1,15 +1,13 @@
 
 import { CommonModule } from '@angular/common';
-import { Component, signal } from '@angular/core';
-import { SearchBox } from './search-box/search-box';
+import { Component } from '@angular/core';
 
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule,SearchBox],
+  imports: [CommonModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  nums=signal([0,1,2,3,4,5])
 }
