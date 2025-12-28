@@ -1,12 +1,11 @@
 
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { Footer } from './footer/footer';
+import { Component, signal } from '@angular/core';
 
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule,Footer],
+  imports: [CommonModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
