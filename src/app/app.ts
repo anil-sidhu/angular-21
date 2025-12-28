@@ -1,17 +1,14 @@
 
 import { CommonModule } from '@angular/common';
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
+import { Footer } from './footer/footer';
 
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule],
+  imports: [CommonModule,Footer],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-isLogin= signal(true)
-users=signal(["anil","same","peter","bruce"])
-pColor="red"
-
 }
