@@ -1,1 +1,8 @@
-<h1>Inline Component </h1>
+<input type="text" 
+(input)="newUser.set($event.target.value)"
+ placeholder="enter new user name">
+<button (click)="addNewUser()" >Add new User</button>
+
+@for(user of users();track user){
+<app-child [userName]="user"></app-child>
+}
