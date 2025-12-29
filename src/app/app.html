@@ -1,4 +1,27 @@
-<h1>Global Store with Signal</h1>
-<app-display-count></app-display-count>
-<hr />
-<app-control-count></app-control-count>
+<h1>{{title() | uppercase}}</h1>
+<h1>{{title() | titlecase}}</h1>
+
+<input type="text" (input)="title.set($event.target.value)" >
+
+<hr>
+{{ price | currency:'INR' }}
+{{ price | currency:'USD' }}
+{{ price | currency }}
+{{ price | currency:'EUR' }}
+ 
+
+<hr>
+<h1>{{date | date:'dd'}}</h1>
+<h1>{{date | date:'MM'}}</h1>
+<h1>{{date | date:'YY'}}</h1>
+<h1>{{date | date:'short'}}</h1>
+<h1>{{date | date:'full'}}</h1>
+
+<h1>{{date | date:'dd/mm/yy'}}</h1>
+<h1>{{object | json}}</h1>
+
+
+
+
+
+
