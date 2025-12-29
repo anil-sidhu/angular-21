@@ -1,27 +1,22 @@
 <h1>{{title() | uppercase}}</h1>
 <h1>{{title() | titlecase}}</h1>
+<hr />
+<h1>{{name() | titlecase }}</h1>
+<input type="text" (input)="name.set($event.target.value)">
+<hr />
+<!-- <h3>I bought a {{mobile | titlecase}} mobile on  {{date | date}} in  {{amount | currency:'USD'}}</h3> -->
 
-<input type="text" (input)="title.set($event.target.value)" >
+<h1>{{amount | currency:'USD'}}</h1>
+<hr>
+<h1>{{today | date}}</h1>
+<h1>{{today | date:'mm'}}</h1>
+<h1>{{today | date:'dd'}}</h1>
+<h1>{{today | date:'yy'}}</h1>
+<h1>{{today | date:'short'}}</h1>
+<h1>{{today | date:'full'}}</h1>
 
 <hr>
-{{ price | currency:'INR' }}
-{{ price | currency:'USD' }}
-{{ price | currency }}
-{{ price | currency:'EUR' }}
- 
-
-<hr>
-<h1>{{date | date:'dd'}}</h1>
-<h1>{{date | date:'MM'}}</h1>
-<h1>{{date | date:'YY'}}</h1>
-<h1>{{date | date:'short'}}</h1>
-<h1>{{date | date:'full'}}</h1>
-
-<h1>{{date | date:'dd/mm/yy'}}</h1>
-<h1>{{object | json}}</h1>
-
-
-
+<h2>{{user() | json}}</h2>
 
 
 
