@@ -1,20 +1,17 @@
 
 import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
+import { TrimTextPipe } from './custom-pipe/trim-text-pipe';
+import { CurrencyConvertorPipe } from './custom-pipe/currency-convertor-pipe';
 @Component({
   selector: 'app-root',
-  imports:[CommonModule],
+  imports: [CommonModule,TrimTextPipe,CurrencyConvertorPipe],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  title=signal("code step by step")
-  name=signal("");
+  title=signal("Code step by step")
+  name=signal("My name is anil sidhu")
+  amount=signal(20)
 
-  amount=10000;
-  date="8-24-2025";
-  mobile="samsung"
-  today= new Date()
-  user=signal({name:'anil',age:29,email:"code@test.com"})
 }
- 
