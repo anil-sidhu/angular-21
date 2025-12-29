@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Child } from './child';
+import { DisplayCount } from './display-count';
 
-describe('Child', () => {
-  let component: Child;
-  let fixture: ComponentFixture<Child>;
+describe('DisplayCount', () => {
+  let component: DisplayCount;
+  let fixture: ComponentFixture<DisplayCount>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Child]
+      imports: [DisplayCount]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Child);
+    fixture = TestBed.createComponent(DisplayCount);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
