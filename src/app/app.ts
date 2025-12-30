@@ -1,18 +1,13 @@
 
 import { CommonModule } from '@angular/common';
-import { Component, effect, signal } from '@angular/core';
+import { Component } from '@angular/core';
+import { RouterLink, RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-root',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterOutlet,RouterLink],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-count=signal(0)
-constructor(){
-  effect(()=>{
-    console.log("count val is :");
-    
-  })
-}
+
 }

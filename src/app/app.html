@@ -1,2 +1,12 @@
-<h1>{{count()}}</h1>
-<button (click)="count.set(count()+1)" >Update</button>
+
+
+<ul >
+    <li><a routerLink="/">Home</a></li>
+    <li><a routerLink="/login">Login</a></li>
+    <li><a routerLink="/about">About</a></li>
+    <li><a routerLink="/profile">Profile</a></li>
+
+</ul>
+<hr />
+
+<router-outlet></router-outlet>
