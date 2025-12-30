@@ -1,10 +1,2 @@
-<h1>{{title() | trimText | uppercase}}</h1>
-<h1>{{name() | trimText:5}}</h1>
-<h1>{{name() | trimText:10}}</h1>
-
-<hr>
-
-<h3>{{amount() | currencyConvertor | currency:'INR'}}</h3>
-<h3>{{amount() | currencyConvertor:30 | currency:'INR'}}</h3>
-<h3>{{amount() | currencyConvertor:120 | currency:'INR'}}</h3>
-
+<h1>{{count()}}</h1>
+<button (click)="count.set(count()+1)" >Update</button>
