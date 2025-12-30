@@ -1,1 +1,8 @@
 <h1>Home Page</h1>
+<a 
+[routerLink]="['/profile']"
+[queryParams]="{name:'anil',age:'29',id:20}"
+
+>Anil's Profile</a>
+
+<button (click)="goToProfile()" >Go to Anil's Profile</button>
