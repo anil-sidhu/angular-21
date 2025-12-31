@@ -6,6 +6,8 @@ import { Profile } from './pages/profile/profile';
 
 export const routes: Routes = [
     {path:"",component:Home},
+    {path:"about/:name/:age",component:About},
+    {path:"about/:name",component:About},
     {path:"about",component:About},
     {path:"login",component:Login},
     {path:"profile",component:Profile},
