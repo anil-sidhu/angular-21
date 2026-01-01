@@ -1,28 +1,11 @@
-import { Component, signal } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink],
+  imports: [],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
 export class Home {
-  constructor(public route:Router){}
-userData=signal({name:'sidhu',age:29,id:1})
 
-goToProfile(){
-  this.route.navigate(['profile'],{
-    queryParams:{
-      id:10,
-      name:'peter',
-      age:40
-    }
-  })
-
-}
-
-goToAbout(){
-  this.route.navigate(['about','peter','22'])
-}
 }
