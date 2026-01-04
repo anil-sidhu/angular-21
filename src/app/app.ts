@@ -1,7 +1,7 @@
 
 import { CommonModule } from '@angular/common';
 import { Component} from '@angular/core';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-root',
   imports: [CommonModule, ReactiveFormsModule],
@@ -9,17 +9,21 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
   styleUrl: './app.css'
 })
 export class App {
-email=new FormControl("default@test.com")
-password=new FormControl("12345")
+loginForm=new FormGroup({
+  name:new FormControl(''),
+  email:new FormControl(''),
+  password:new FormControl(''),
+})
 
-login(){
-  console.log(this.email.value,this.password.value);
+handleProfile(){
+  console.log(this.loginForm.value);
 }
-
 reset(){
-  this.email.setValue("");
-  this.password.setValue("");
-
+  this.loginForm.setValue({
+    name:'',
+    password:'',
+    email:''
+  })
 }
 
 }

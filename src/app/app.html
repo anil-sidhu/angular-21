@@ -1,13 +1,20 @@
 <h1>Reactive Form</h1>
 <ul>
-    <li>Email : {{email.value}}</li>
-    <li>Password : {{password.value}}</li>
+    <li>Name : {{loginForm.value.name}}</li>
+    <li>Password : {{loginForm.value.password}}</li>
+    <li>Email : {{loginForm.value.email}}</li>
 
 </ul>
-<br>
-<input type="text" placeholder="enter email" [formControl]="email" />
 <br><br>
-<input type="password" placeholder="enter password" [formControl]="password" />
+<form [formGroup]="loginForm" (ngSubmit)="handleProfile()" method="post">
+<input type="text" formControlName="name" placeholder="enter Name">
 <br><br>
-<button (click)="login()">Login</button>
-<button (click)="reset()">Reset</button>
+<input type="text" formControlName="email" placeholder="enter email">
+<br><br>
+<input type="password" formControlName="password" placeholder="enter password">
+<br><br>
+<button>Submit</button>
+<button (click)="reset()" >Reset</button>
+
+
+</form>
