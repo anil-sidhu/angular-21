@@ -1,7 +1,4 @@
-a{
-    color: orange;
-    padding: 8px;
-}
-.child-nav a{
-    color: brown;
+.error{
+    color: red;
+    padding-left: 10px;
 }

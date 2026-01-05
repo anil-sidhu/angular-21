@@ -1,19 +1,36 @@
 <h1>Reactive Form</h1>
-<ul>
-    <li>Name : {{loginForm.value.name}}</li>
-    <li>Password : {{loginForm.value.password}}</li>
-    <li>Email : {{loginForm.value.email}}</li>
-
-</ul>
 <br><br>
 <form [formGroup]="loginForm" (ngSubmit)="handleProfile()" method="post">
 <input type="text" formControlName="name" placeholder="enter Name">
+@if(name?.hasError('required') && name?.touched){
+    <span class="error">This name field is required</span>
+}
+@if(name?.errors?.['maxlength'] && name?.touched){
+    <span class="error">Name is not valid</span>
+}
+
 <br><br>
 <input type="text" formControlName="email" placeholder="enter email">
+@if(email?.hasError('required') && email?.touched){
+    <span class="error">This email field is required</span>
+}
+
+@if(email?.errors?.['email'] && email?.touched){
+    <span class="error">This email is not valid</span>
+}
+
 <br><br>
 <input type="password" formControlName="password" placeholder="enter password">
+@if(password?.hasError('required') && password?.touched){
+    <span class="error"> password field is required</span>
+}
+
+@if(password?.errors?.['minlength'] && password?.touched){
+    <span class="error">This password is not valid</span>
+}
+
 <br><br>
-<button>Submit</button>
+<button [disabled]="loginForm.invalid" >Submit</button>
 <button (click)="reset()" >Reset</button>
 
 
