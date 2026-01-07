@@ -1,11 +1,25 @@
 <h1> Forms With Signals</h1>
  <input type="text" placeholder="enter email" [field]="loginForm.email">
+ @if(loginForm.email().touched() && loginForm.email().invalid()){
+    <ul>
+        @for(error of loginForm.email().errors(); track error){
+            <li>{{error.message}}</li>
+        }
+    </ul>
+ }
  <br>
  <br>
  <input type="password" placeholder="enter password" [field]="loginForm.password">
+ @if(loginForm.password().touched() && loginForm.password().invalid()){
+    <ul>
+        @for(error of loginForm.password().errors(); track error){
+            <li>{{error.message}}</li>
+        }
+    </ul>
+ }
  <br>
  <br>
- <button (click)="login()" >Login</button>
+ <button [disabled]="loginForm().invalid()" (click)="login()" >Login</button>
  <button (click)="reset()" >Reset</button>
 
 
