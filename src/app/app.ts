@@ -1,36 +1,19 @@
 
 import { CommonModule } from '@angular/common';
-import { Component, signal } from '@angular/core';
-import { email, Field, form, maxLength, minLength, required } from '@angular/forms/signals';
+import { Component } from '@angular/core';
+import { FormsModule, NgForm } from '@angular/forms';
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, Field],
+  imports: [CommonModule,FormsModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  loginModel = signal({
-    email: '',
-    password: ''
-  })
-  loginForm = form(this.loginModel,(field)=>{
-    required(field.email,{message:"please enter email address"});
-    minLength(field.email,5,{message:"please enter valid email"});
-    email(field.email,{message:"please enter valid email address"});
-
-    required(field.password,{message:"please enter a password email"});
-    minLength(field.password,5,{message:"please enter valid password"});
-    maxLength(field.password,10,{message:"please enter valid password"});
-
-  })
-  login() {
-    console.log(this.loginForm.email().value());
-    console.log(this.loginForm.password().value());
-
-  }
-  reset() {
-    this.loginForm.email().value.set('')
-   this.loginForm.password().value.set('')
-
+  
+  userDetails:any=undefined
+  addUser(data:NgForm){
+    console.log(data);
+    this.userDetails=data
+    
   }
 }
