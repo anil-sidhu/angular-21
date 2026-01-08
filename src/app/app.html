@@ -1,29 +1,10 @@
-<h1>Template Driven Form</h1>
-<ul>
-    <li>Name. : {{userDetails?.userName}}</li>
-    <li>Gender. : {{userDetails?.gender}}</li>
-    <li>Range. : {{userDetails?.range}}</li>
-    <li>Bio. : {{userDetails?.userBio}}</li>
+<h1>{{name}}</h1>
 
-</ul>
-<form #userForm="ngForm" (ngSubmit)="addUser(userForm.value)">
-    <input type="text" name="userName" placeholder="enter user name" ngModel>
-    <br>
-    <br>
-    <input type="text" name="password" placeholder="enter password" ngModel>
-<br>
-<br>
-    <select name="gender" id="" ngModel>
-        <option value="">Select Gender</option>
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-    </select>
-    <br><br>
-    <input type="range" name="range" ngModel>
-    <br>
-    <br>
-    <textarea name="userBio" ngModel id=""></textarea>
-    <br>
-    <br>
-    <button>Add User</button>
-</form>
+<button (click)="updateName()" >Update Name</button>
+<button (click)="updateCounter()" >Update Counter</button>
+<button (click)="toggle()" >Toggle Child</button>
+
+
+@if(showChild){
+<app-child [count]="count" ></app-child>
+}
