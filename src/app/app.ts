@@ -1,52 +1,22 @@
 
 import { CommonModule } from '@angular/common';
-import { afterEveryRender, afterNextRender, Component} from '@angular/core';
-import { Child } from './child/child';
+import {  Component, signal} from '@angular/core';
+import { ProductService } from './services/product-service';
 @Component({
   selector: 'app-root',
-  imports: [CommonModule,Child],
+  imports: [CommonModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
- 
-  name="anil"
-  count=0;
-  showChild=true
-constructor(){
-  // console.warn("constructor");
-  // this.name="sid"
+  productData:any=signal("");
+ constructor(private productService:ProductService){}
 
-  afterNextRender(()=>{
-    console.warn("first re-render");
-    
-  })
 
-  afterEveryRender(()=>{
-    console.warn("every re-render");
-
-  })
+loadData(){
+let data = this.productService.getProducts();
+  console.log(data);
+  this.productData.set(data)
   
-}
-// ngOnInit(){
-//   console.warn("ngOnInit");
-//   this.name="sidhu"
-  
-// }
-
-// ngDoCheck(){
-//   console.warn("ngDoCheck");
-  
-// }
-
-updateName(){
-  this.name="Peter"
-}
-
-updateCounter(){
-  this.count++
-}
-toggle(){
-  this.showChild=!this.showChild
 }
 }

@@ -1,10 +1,7 @@
-<h1>{{name}}</h1>
-
-<button (click)="updateName()" >Update Name</button>
-<button (click)="updateCounter()" >Update Counter</button>
-<button (click)="toggle()" >Toggle Child</button>
-
-
-@if(showChild){
-<app-child [count]="count" ></app-child>
-}
+<h1>Products</h1>
+<button (click)="loadData()" >Load Data</button>
+<ul>
+    @for(product of productData(); track product.id){
+        <li>{{product.name}}, {{product.price}}</li>
+    }
+</ul>
