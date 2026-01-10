@@ -1,7 +1,7 @@
 
 import { CommonModule } from '@angular/common';
-import {  Component, signal} from '@angular/core';
-import { ProductService } from './services/product-service';
+import { Component, signal } from '@angular/core';
+import { Products } from './services/products';
 @Component({
   selector: 'app-root',
   imports: [CommonModule],
@@ -9,14 +9,16 @@ import { ProductService } from './services/product-service';
   styleUrl: './app.css'
 })
 export class App {
-  productData:any=signal("");
- constructor(private productService:ProductService){}
+  productData:any=signal("")
+  constructor(private productService:Products){
 
-
-loadData(){
-let data = this.productService.getProducts();
-  console.log(data);
-  this.productData.set(data)
-  
-}
+  }
+  ngOnInit(){
+    this.productService.getProducts().subscribe((data)=>{
+      console.log(data.products);
+      this.productData.set(data.products)
+      
+    })
+  }
+ 
 }
