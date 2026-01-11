@@ -1,12 +1,3 @@
-<h1>Product List</h1>
 
-<ul>
-    @for(product of productData(); track product.id){
-        <ul class="product-ul">
-            <li>Name : {{product.title}}</li>
-            <li>Price : {{product.price}}</li>
-            <li>Category : {{product.category}}</li>
 
-        </ul>
-    }
-</ul>
+<router-outlet></router-outlet>
