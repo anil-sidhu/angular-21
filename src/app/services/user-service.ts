@@ -13,4 +13,7 @@ export class UserService {
   getUsers(){
     return this.http.get<users[]>(this.url)
   }
+  saveUser(data:users){
+  return this.http.post<users>(this.url,data)
+  }
 }
