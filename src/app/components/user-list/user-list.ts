@@ -1,6 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { UserService } from '../../services/user-service';
 import { users } from '../../services/user-data-type';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-list',
@@ -10,7 +11,7 @@ import { users } from '../../services/user-data-type';
 })
 export class UserList {
   usersData = signal<users[] | undefined>(undefined)
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router:Router) { }
   ngOnInit() {
     this.getUser()
   }
@@ -33,5 +34,10 @@ export class UserList {
       })
     }
 
+  }
+  editUser(id:number | undefined){
+    this.router.navigate([`edit/${id}`])
+    // console.log(id);
+    
   }
 }

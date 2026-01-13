@@ -9,7 +9,10 @@
             <li> Email :{{user.email}}</li>
             <li> id :{{user.id}}</li>
         </ul>
-        <button (click)="deleteUser(user.id)" >Delete</button>
+       <div>
+         <button (click)="deleteUser(user.id)" >Delete</button>
+         <button (click)="editUser(user.id)" >Edit</button>
+       </div>
       </div>
     }
 </ul>
