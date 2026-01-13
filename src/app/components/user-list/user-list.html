@@ -2,12 +2,14 @@
 
 <ul>
     @for(user of usersData(); track user.id){
-        <ul class="user-ul">
+      <div class="user-ul">
+          <ul >
             <li> Name :{{user.name}}</li>
             <li> Age :{{user.age}}</li>
             <li> Email :{{user.email}}</li>
             <li> id :{{user.id}}</li>
-
         </ul>
+        <button (click)="deleteUser(user.id)" >Delete</button>
+      </div>
     }
 </ul>
