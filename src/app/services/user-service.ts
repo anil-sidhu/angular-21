@@ -22,4 +22,7 @@ export class UserService {
    getUser(id:string){
     return this.http.get<users>(`${this.url}/${id}`)
   }
+   userEdit(data:users, id:string){
+    return this.http.put<users>(`${this.url}/${id}`,data)
+  }
 }

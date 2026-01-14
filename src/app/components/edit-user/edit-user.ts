@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../services/user-service';
 
 @Component({
@@ -14,7 +14,10 @@ export class EditUser {
   name = new FormControl("");
   age = new FormControl("");
   email = new FormControl("");
-  constructor(private activeRouter:ActivatedRoute, private userService: UserService){}
+  constructor(private activeRouter:ActivatedRoute, 
+    private userService: UserService,
+    private router:Router
+  ){}
 
   ngOnInit(){
     let id = this.activeRouter.snapshot.paramMap.get('id');
@@ -33,6 +36,20 @@ export class EditUser {
     
   }
   editUser(){
+    let name= this.name.value;
+    let age= this.age.value;
+    let email= this.email.value;
+    let id = this.activeRouter.snapshot.paramMap.get('id');
+    if(name && age && email && id){
+      let data ={
+        name:name,
+        age:Number(age),
+        email:email,
+      }
+      this.userService.userEdit(data,id).subscribe((item)=>{
+        this.router.navigate(['/'])
+      })
+    }
 
   }
 }
