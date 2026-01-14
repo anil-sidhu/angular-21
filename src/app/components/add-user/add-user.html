@@ -1,14 +1,22 @@
-<h1>Add New User</h1>
 
-<div>
-    <input type="text" placeholder="enter name" name="name" [formControl]="name">
+
+   <div class="user-ul max-w-lg shadow-md m-4 p-4 rounded-lg">
+    <h1 class="text-2xl text-orange-600">Add New User</h1>
+    <input 
+    class="w-full border border-gray-300 rounded px-3 py-2 mb-4"
+    type="text" placeholder="enter name" name="name" [formControl]="name">
     <br><br>
 
-     <input type="text" placeholder="enter email" name="email" [formControl]="email">
+     <input 
+      class="w-full border border-gray-300 rounded px-3 py-2 mb-4"
+     type="text" placeholder="enter email" name="email" [formControl]="email">
     <br><br>
 
-     <input type="text" placeholder="enter age" name="age" [formControl]="age">
+     <input  class="w-full border border-gray-300 rounded px-3 py-2 mb-4"
+     type="text" placeholder="enter age" name="age" [formControl]="age">
     <br><br>
 
-    <button (click)="addUser()" >Add User</button>
+    <button 
+     class="bg-orange-500 p-1 rounded-xs text-white m-1 cursor-pointer " 
+     (click)="addUser()" >Add User</button>
 </div>

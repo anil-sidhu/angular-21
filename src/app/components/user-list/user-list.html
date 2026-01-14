@@ -1,13 +1,25 @@
-<h1>User List</h1>
+<h1 class="text-2xl text-orange-700 text-center">User List</h1>
 
 <ul>
     @for(user of usersData(); track user.id){
-      <div class="user-ul">
-          <ul >
-            <li> Name :{{user.name}}</li>
-            <li> Age :{{user.age}}</li>
-            <li> Email :{{user.email}}</li>
-            <li> id :{{user.id}}</li>
+      <div class="user-ul max-w-lg shadow-md m-4 p-4 rounded-lg">
+          <ul class="space-y-2 text-gray-800" >
+            <li class="flex justify-between">
+              <span> Name :</span>
+              <span> {{user.name}}</span>
+            </li>
+            <li class="flex justify-between">
+              <span> Age :</span>
+              <span> {{user.age}}</span>
+            </li>
+            <li class="flex justify-between">
+              <span> Email :</span>
+              <span> {{user.email}}</span>
+            </li>
+            <li class="flex justify-between">
+              <span> Id :</span>
+              <span> {{user.id}}</span>
+            </li>
         </ul>
        <div>
          <button class="bg-red-500 p-1 rounded-xs text-white m-1 cursor-pointer" (click)="deleteUser(user.id)" >Delete</button>
