@@ -10,8 +10,8 @@
             <li> id :{{user.id}}</li>
         </ul>
        <div>
-         <button (click)="deleteUser(user.id)" >Delete</button>
-         <button (click)="editUser(user.id)" >Edit</button>
+         <button class="bg-red-500 p-1 rounded-xs text-white m-1 cursor-pointer" (click)="deleteUser(user.id)" >Delete</button>
+         <button class="bg-orange-500 p-1 rounded-xs text-white m-1 cursor-pointer " (click)="editUser(user.id)" >Edit</button>
        </div>
       </div>
     }
