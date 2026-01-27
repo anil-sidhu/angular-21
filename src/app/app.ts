@@ -10,19 +10,22 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.css'
 })
 export class App {
-headingColor= signal("green");
-headingSize=signal(40);
-homeActive=false;
-contactActive=false;
-aboutActive=true;
-bigText=signal(false)
-error =true
+ age = 20;
+marks = 75;
 
-updateColor(){
-  this.headingColor.set("orange")
-  this.headingSize.set(20);
-  this.error=!this.error
-  
+ show = true;
 
-}
+  toggle() {
+    this.show = !this.show;
+  }
+
+   isLoggedIn = false;
+
+  login() {
+    this.isLoggedIn = true;
+  }
+
+  logout() {
+    this.isLoggedIn = false;
+  }
 }

@@ -1,18 +1,42 @@
-<h1 [style.color]="headingColor()" [style.fontSize.px]="headingSize()" >Dynamic Style</h1>
-<button (click)="updateColor()" >Update Color</button>
+@if(age >= 18){
+  <h2>You are eligible for vote</h2>
+}
 
-<br>
-    <a [class.active]="homeActive" href="">Home</a>
-    <a [class.active]="aboutActive" href="">About</a>
-    <a [class.active]="contactActive" href="">Contact</a>
-
-    <h2 [class.big]="bigText()" >
-        Heading 2
-    </h2>
-
-<h4 [style.color]="error?'red':'green'" >Message Status</h4>
-
-<h4 [ngStyle]="{color:error?'red':'green'}" >Message Status with Ng Style</h4>
+@if(age >= 18){
+  <h2>You are eligible for vote</h2>
+}
+@else {
+  <h2>You are not eligible for vote</h2>
+}
 
 
+@if(marks >= 90){
+  <h2>Grade A+</h2>
+}
+@else if(marks >= 75){
+  <h2>Grade A</h2>
+}
+@else if(marks >= 50){
+  <h2>Grade B</h2>
+}
+@else {
+  <h2>Fail</h2>
+}
 
+<button (click)="toggle()">Toggle</button>
+
+@if(show){
+  <h2>This text is visible</h2>
+}
+@else {
+  <h2>This text is hidden</h2>
+}
+
+
+@if(isLoggedIn){
+  <button (click)="logout()">Logout</button>
+  <h2>Welcome User</h2>
+}
+@else {
+  <button (click)="login()">Login</button>
+}
