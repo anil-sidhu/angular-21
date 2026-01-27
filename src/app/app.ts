@@ -1,18 +1,14 @@
 
 import { CommonModule } from '@angular/common';
 import { Component, effect, signal } from '@angular/core';
+import { TrimPipe } from './pipes/trim-pipe';
 @Component({
   selector: 'app-root',
-  imports: [CommonModule],
+  imports: [CommonModule,TrimPipe],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-count=signal(0)
-constructor(){
-  effect(()=>{
-    console.log("count val is :");
-    
-  })
+  text = 'Angular Custom Pipe Example Code Step By Step';
 }
-}
+

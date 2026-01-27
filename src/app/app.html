@@ -1,2 +1,3 @@
-<h1>{{count()}}</h1>
-<button (click)="count.set(count()+1)" >Update</button>
+<p>{{ text | trimText }}</p>
+<p>{{ text | trimText:5 }}</p>
+<p>{{ text | trimText:10:'***' }}</p>
